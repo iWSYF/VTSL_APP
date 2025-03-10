@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTSL</title>
+</head>
+
+<body>
+    <div class="Record_Button_class">
+        <form method="POST">
+        <button type="submit"> Record </button>
+        </form> 
+    </div>
+    
+    <div class="Display_text">
+        {% if original_text %}
+        <h2>Text:</h2>
+        <p>{{ original_text }}</p>
+
+        <h2>Split Text:</h2>
+        <ul>
+            {% for word in words %}
+                <li>{{ word }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %} 
+    </div>
+</body>
+</html>
