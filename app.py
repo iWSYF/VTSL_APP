@@ -5,6 +5,11 @@ import json
 
 app = Flask(__name__)
 
+
+model = Model(r"C:\\Users\\Wail Mawa\\Desktop\\vosk-model-en-us-0.22")
+# C:\\Users\\Wail Mawa\\Desktop\\vosk-model-en-us-0.22 MSI Wail
+# C:\\Users\\wsyf9\\OneDrive\\Desktop\\vosk-model-en-us-0.42-gigaspeech PC Wail
+recognizer = KaldiRecognizer(model, 44100)
 # Mic setup
 p = pyaudio.PyAudio()
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=44100, input=True, frames_per_buffer=1024)
@@ -34,8 +39,4 @@ def VoiceText():
     return render_template('index.html', original_text=None, words=None)
 
 if __name__ == '__main__':
-    model = Model(r"C:\\Users\\wsyf9\\OneDrive\\Desktop\\vosk-model-en-us-0.42-gigaspeech")
-    recognizer = KaldiRecognizer(model, 44100)
     app.run(debug=True)
-
-    
