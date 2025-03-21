@@ -5,12 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/main-logo.png') }}" />
-    <title>Home</title>
-
+    <title>About</title>
+    
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css.map') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}" />
   </head>
@@ -20,7 +19,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-3 col-md-2 col-sm-12 col-12">
-            <a class="linklogo" href="#">
+            <a class="linklogo" href="{{ url_for('home') }}">
               <img src="{{ url_for('static', filename='img/main-logo.png') }}" alt="logo" />
             </a>
             <span class="menubtn"><i class="fa-solid fa-bars"></i></span>
@@ -33,7 +32,7 @@
           </div>
           <div class="col-lg-2 col-md-3 col-sm-12 col-12">
             <div class="btnheader">
-              <a class="mainbtn linkdown" href="#speechrecord">Try It Now</a>
+              <a class="mainbtn link6" href="{{ url_for('home') }}">Try It Now</a>
             </div>
           </div>
         </div>
@@ -41,49 +40,45 @@
     </header>
     <!-- End header -->
 
-    <!-- Start speechrecord -->
-    <section id="speechrecord" class="speechrecord">
+    <!-- Start about -->
+    <section class="about">
       <div class="container">
         <div class="uplogo">
           <img src="{{ url_for('static', filename='img/main-logo.png') }}" alt="" />
         </div>
         <div class="row">
           <div class="col-md">
-            <div class="mainspeechbox">
-              <h4>Speech to Text</h4>
-              <div class="row">
-                <div class="col-12">
-                  <form method="POST">
-                    <button id="record" type="submit">
-                      <span><i class="fa-solid fa-microphone-lines"></i></span>
-                      Start Recording
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
+            <h4>Our Mission</h4>
+            <p>
+              At VTSL, we believe that knowledge is a fundamental right, and no
+              disability should stand in the way of learning. Our mission is to
+              break communication barriers and empower the deaf community with
+              seamless access to education through advanced technology.
+            </p>
+            <p>
+              We develop innovative sign language solutions, creating an
+              inclusive learning environment where every student, regardless of
+              hearing ability, can learn, engage, and succeed. By integrating
+              speech recognition and natural language processing, we transform
+              spoken language into sign language in, bridging the gap between
+              sound and silence.
+            </p>
+            <p>
+              Education is not a privilege—it is a right. We are committed to
+              equipping deaf individuals with the tools they need to access
+              knowledge effortlessly. With innovation as our foundation and
+              inclusivity as our goal, we strive to build a world without
+              barriers.
+            </p>
+            <a class="mainbtn link6" href="{{ url_for('home') }}">Try It Now</a>
           </div>
-
           <div class="col-md">
-            <div class="mainspeechbox">
-              <h4>Output</h4>
-              {% if original_text %}
-                <h5>Text:</h5>
-                <p>{{ original_text }}</p>
-
-                <h5>Split Text:</h5>
-                <ul>
-                  {% for word in words %}
-                    <li>{{ word }}</li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </div>
+            <img src="{{ url_for('static', filename='img/about.jpeg') }}" alt="" />
           </div>
         </div>
       </div>
     </section>
-    <!-- End speechrecord -->
+    <!-- End about -->
 
     <!-- Start footer -->
     <footer>
@@ -97,7 +92,6 @@
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/all.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js.map') }}"></script>
     <script src="{{ url_for('static', filename='js/myscript.js') }}"></script>
   </body>
 </html>
